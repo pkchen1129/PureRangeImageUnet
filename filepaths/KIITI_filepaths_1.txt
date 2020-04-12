@@ -1,0 +1,1 @@
+/media/thomas/Samsung_T5/_data/KITTI_SegmentedData/KITTI_Segmantic_Segmentation/dataset/sequences/08/velodyne/001772.bin
