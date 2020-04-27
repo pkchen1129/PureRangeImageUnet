@@ -26,6 +26,12 @@ target_link_libraries(read_rimg_bin ${PCL_LIBRARIES})
 add_executable(filepath filepath.cpp)
 target_link_libraries(filepath ${PCL_LIBRARIES})
 
+add_executable(write_rimg_vo_bin write_rimg_vo_bin.cpp)
+target_link_libraries(write_rimg_vo_bin ${PCL_LIBRARIES})
+
+add_executable(write_rimg_vo_labels write_rimg_vo_labels.cpp)
+target_link_libraries(write_rimg_vo_labels ${PCL_LIBRARIES})
+
 SET(COMPILE_FLAGS "-std=c++17")
 #set(CMAKE_CXX_STANDARD 17)
 #set(CMAKE_CXX_STANDARD_REQUIRED ON)

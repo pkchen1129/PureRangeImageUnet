@@ -172,6 +172,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/write_rimg_vo_labels.dir/DependInfo.cmake"
+  "CMakeFiles/write_rimg_vo_bin.dir/DependInfo.cmake"
   "CMakeFiles/filepath.dir/DependInfo.cmake"
   "CMakeFiles/visualize_rimg_pc.dir/DependInfo.cmake"
   "CMakeFiles/write_rimg_bin.dir/DependInfo.cmake"

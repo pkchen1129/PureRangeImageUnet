@@ -70,6 +70,8 @@ CMAKE_BINARY_DIR = /home/thomas/ROB530/final_project/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/write_rimg_vo_labels.dir/all
+all: CMakeFiles/write_rimg_vo_bin.dir/all
 all: CMakeFiles/filepath.dir/all
 all: CMakeFiles/visualize_rimg_pc.dir/all
 all: CMakeFiles/write_rimg_bin.dir/all
@@ -85,6 +87,8 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/write_rimg_vo_labels.dir/clean
+clean: CMakeFiles/write_rimg_vo_bin.dir/clean
 clean: CMakeFiles/filepath.dir/clean
 clean: CMakeFiles/visualize_rimg_pc.dir/clean
 clean: CMakeFiles/write_rimg_bin.dir/clean
@@ -93,6 +97,60 @@ clean: CMakeFiles/write_rimg_labels.dir/clean
 clean: CMakeFiles/read_rimg_bin.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/write_rimg_vo_labels.dir
+
+# All Build rule for target.
+CMakeFiles/write_rimg_vo_labels.dir/all:
+	$(MAKE) -f CMakeFiles/write_rimg_vo_labels.dir/build.make CMakeFiles/write_rimg_vo_labels.dir/depend
+	$(MAKE) -f CMakeFiles/write_rimg_vo_labels.dir/build.make CMakeFiles/write_rimg_vo_labels.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/thomas/ROB530/final_project/build/CMakeFiles --progress-num=15,16 "Built target write_rimg_vo_labels"
+.PHONY : CMakeFiles/write_rimg_vo_labels.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/write_rimg_vo_labels.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thomas/ROB530/final_project/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/write_rimg_vo_labels.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thomas/ROB530/final_project/build/CMakeFiles 0
+.PHONY : CMakeFiles/write_rimg_vo_labels.dir/rule
+
+# Convenience name for target.
+write_rimg_vo_labels: CMakeFiles/write_rimg_vo_labels.dir/rule
+
+.PHONY : write_rimg_vo_labels
+
+# clean rule for target.
+CMakeFiles/write_rimg_vo_labels.dir/clean:
+	$(MAKE) -f CMakeFiles/write_rimg_vo_labels.dir/build.make CMakeFiles/write_rimg_vo_labels.dir/clean
+.PHONY : CMakeFiles/write_rimg_vo_labels.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/write_rimg_vo_bin.dir
+
+# All Build rule for target.
+CMakeFiles/write_rimg_vo_bin.dir/all:
+	$(MAKE) -f CMakeFiles/write_rimg_vo_bin.dir/build.make CMakeFiles/write_rimg_vo_bin.dir/depend
+	$(MAKE) -f CMakeFiles/write_rimg_vo_bin.dir/build.make CMakeFiles/write_rimg_vo_bin.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/thomas/ROB530/final_project/build/CMakeFiles --progress-num=13,14 "Built target write_rimg_vo_bin"
+.PHONY : CMakeFiles/write_rimg_vo_bin.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/write_rimg_vo_bin.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thomas/ROB530/final_project/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/write_rimg_vo_bin.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thomas/ROB530/final_project/build/CMakeFiles 0
+.PHONY : CMakeFiles/write_rimg_vo_bin.dir/rule
+
+# Convenience name for target.
+write_rimg_vo_bin: CMakeFiles/write_rimg_vo_bin.dir/rule
+
+.PHONY : write_rimg_vo_bin
+
+# clean rule for target.
+CMakeFiles/write_rimg_vo_bin.dir/clean:
+	$(MAKE) -f CMakeFiles/write_rimg_vo_bin.dir/build.make CMakeFiles/write_rimg_vo_bin.dir/clean
+.PHONY : CMakeFiles/write_rimg_vo_bin.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/filepath.dir

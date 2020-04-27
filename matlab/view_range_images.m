@@ -1,10 +1,10 @@
 %% Looking at range image .bin data
 clc, clear
-sequence = '00';
+sequence = '01';
 % datanum = '000000';
 datanum = '000000';
 
-is_windows = 1;
+is_windows = 0;
 
 if (is_windows == 1)
     datapath = ['D:\_data/KITTI_SegmentedData/' ...
@@ -118,14 +118,5 @@ for i = 1:length(fieldnames(data_labeled))
         scatter(data_labeled.(fnames{i}).x, -data_labeled.(fnames{i}).y, 10, colors(i,:));
     end
 end
-axis equal
-linkaxes([ax1,ax2], 'xy')
-
-%% tmp
-figure
-ax1 = subplot(2,1,1);
-plot(data_labeled.sidewalk.x, -data_labeled.sidewalk.y, '*')
-ax2 = subplot(2,1,2);
-plot(data_labeled.car.x, -data_labeled.car.y, '*')
 axis equal
 linkaxes([ax1,ax2], 'xy')

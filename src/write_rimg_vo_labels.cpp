@@ -14,8 +14,8 @@
 // --------------------
 // -----Parameters-----
 // --------------------
-float angular_resolution_x = (float) (0.09f * (M_PI/180.0f));  //   1.0 degree in radians
-float angular_resolution_y = angular_resolution_x;
+float angular_resolution_x = (float) (0.31f * (M_PI/180.0f));  //   0.09, 1.0 degree in radians
+float angular_resolution_y = (float) (0.31f * (M_PI/180.0f));
 pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::LASER_FRAME;
 bool live_update = false;
 
@@ -113,11 +113,12 @@ int main (int argc, char** argv) {
             // -----------------------------------------------
             float noise_level = 0.0;
             float min_range = 0.0f;
+            float maxAngleWidth = 180.0f;  
             int border_size = 1;
             pcl::RangeImage::Ptr range_image_ptr(new pcl::RangeImage);
             pcl::RangeImage& range_image = *range_image_ptr;   
             range_image.createFromPointCloud (pointCloud, angular_resolution_x, angular_resolution_y,
-                                                pcl::deg2rad (360.0f), pcl::deg2rad (180.0f),
+                                                pcl::deg2rad (maxAngleWidth), pcl::deg2rad (180.0f),
                                                 scene_sensor_pose, coordinate_frame, noise_level, min_range, border_size);
             
             FILE * outfile;
@@ -136,7 +137,7 @@ int main (int argc, char** argv) {
             line_label.erase(0, line_label.find(delimeter,0) + delimeter.length());
             
             // New text file path for range-image
-            std::string kitti_path = "/media/thomas/Samsung_T5/_data/KITTI_SegmentedData/KITTI_Segmantic_Segmentation/dataset/sequences/";
+            std::string kitti_path = "/media/thomas/Samsung_T5/_data/orb2/KITTI/dataset/sequences/";
             std::string rimg_path = kitti_path + seq + "/labels_range_images/" + label + ".label";
             outfile = fopen (rimg_path.c_str(),"wb");
 

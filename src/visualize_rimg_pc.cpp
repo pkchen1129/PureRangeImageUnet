@@ -21,8 +21,9 @@ typedef pcl::PointXYZ PointType;
 // --------------------
 // -----Parameters-----
 // --------------------
-float angular_resolution_x = (float) (0.09f * (M_PI/180.0f));  //   1.0 degree in radians
-float angular_resolution_y = angular_resolution_x;
+// 0.09
+float angular_resolution_x = (float) (0.31f * (M_PI/180.0f));  //   0.09, 1.0 degree in radians
+float angular_resolution_y = (float) (0.31f * (M_PI/180.0f));
 pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::LASER_FRAME;
 bool live_update = false;
 
@@ -74,7 +75,7 @@ int main (int argc, char** argv) {
 	float *pz = data+2;
 	float *pr = data+3;
 	// load point cloud
-	std::string currFilenameBinary ("/media/thomas/Samsung_T5/_data/KITTI_SegmentedData/KITTI_Segmantic_Segmentation/dataset/sequences/00/velodyne/000000.bin");
+	std::string currFilenameBinary ("/media/thomas/Samsung_T5/_data/KITTI_SegmentedData/KITTI_Segmantic_Segmentation/dataset/sequences/01/velodyne/000000.bin");
 	FILE *stream;
 	stream = fopen (currFilenameBinary.c_str(),"rb");
 	num = fread(data,sizeof(float),num,stream)/4;
@@ -113,11 +114,12 @@ int main (int argc, char** argv) {
 	// -----------------------------------------------
 	float noise_level = 0.0;
 	float min_range = 0.0f;
-	int border_size = 1;
+	float maxAngleWidth = 180.0f;
+	int border_size = 0;
 	pcl::RangeImage::Ptr range_image_ptr(new pcl::RangeImage);
 	pcl::RangeImage& range_image = *range_image_ptr;   
 	range_image.createFromPointCloud (pointCloud, angular_resolution_x, angular_resolution_y,
-										pcl::deg2rad (360.0f), pcl::deg2rad (180.0f),
+										pcl::deg2rad (maxAngleWidth), pcl::deg2rad (180.0f),
 										scene_sensor_pose, coordinate_frame, noise_level, min_range, border_size);
 	
 	// --------------------------------------------
@@ -143,6 +145,7 @@ int main (int argc, char** argv) {
 	//--------------------
 	// -----Main loop-----
 	//--------------------
+	std::cout << range_image << std::endl;
 	while (!viewer.wasStopped ())
 	{
 		range_image_widget.spinOnce ();
@@ -153,7 +156,7 @@ int main (int argc, char** argv) {
 		{
 		scene_sensor_pose = viewer.getViewerPose();
 		range_image.createFromPointCloud (pointCloud, angular_resolution_x, angular_resolution_y,
-											pcl::deg2rad (360.0f), pcl::deg2rad (180.0f),
+											pcl::deg2rad (maxAngleWidth), pcl::deg2rad (180.0f),
 											scene_sensor_pose, pcl::RangeImage::LASER_FRAME, noise_level, min_range, border_size);
 		range_image_widget.showRangeImage (range_image);
 		}

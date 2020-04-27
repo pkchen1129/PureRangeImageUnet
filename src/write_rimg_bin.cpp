@@ -10,8 +10,8 @@
 // --------------------
 // -----Parameters-----
 // --------------------
-float angular_resolution_x = (float) (0.09f * (M_PI/180.0f));  //   1.0 degree in radians
-float angular_resolution_y = angular_resolution_x;
+float angular_resolution_x = (float) (0.31f * (M_PI/180.0f));  //   0.09, 1.0 degree in radians
+float angular_resolution_y = (float) (0.31f * (M_PI/180.0f));
 pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::LASER_FRAME;
 bool live_update = false;
 

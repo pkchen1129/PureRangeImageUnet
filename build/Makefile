@@ -128,6 +128,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named write_rimg_vo_labels
+
+# Build rule for target.
+write_rimg_vo_labels: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 write_rimg_vo_labels
+.PHONY : write_rimg_vo_labels
+
+# fast build rule for target.
+write_rimg_vo_labels/fast:
+	$(MAKE) -f CMakeFiles/write_rimg_vo_labels.dir/build.make CMakeFiles/write_rimg_vo_labels.dir/build
+.PHONY : write_rimg_vo_labels/fast
+
+#=============================================================================
+# Target rules for targets named write_rimg_vo_bin
+
+# Build rule for target.
+write_rimg_vo_bin: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 write_rimg_vo_bin
+.PHONY : write_rimg_vo_bin
+
+# fast build rule for target.
+write_rimg_vo_bin/fast:
+	$(MAKE) -f CMakeFiles/write_rimg_vo_bin.dir/build.make CMakeFiles/write_rimg_vo_bin.dir/build
+.PHONY : write_rimg_vo_bin/fast
+
+#=============================================================================
 # Target rules for targets named filepath
 
 # Build rule for target.
@@ -367,6 +393,60 @@ write_rimg_labels.cpp.s:
 	$(MAKE) -f CMakeFiles/write_rimg_labels.dir/build.make CMakeFiles/write_rimg_labels.dir/write_rimg_labels.cpp.s
 .PHONY : write_rimg_labels.cpp.s
 
+write_rimg_vo_bin.o: write_rimg_vo_bin.cpp.o
+
+.PHONY : write_rimg_vo_bin.o
+
+# target to build an object file
+write_rimg_vo_bin.cpp.o:
+	$(MAKE) -f CMakeFiles/write_rimg_vo_bin.dir/build.make CMakeFiles/write_rimg_vo_bin.dir/write_rimg_vo_bin.cpp.o
+.PHONY : write_rimg_vo_bin.cpp.o
+
+write_rimg_vo_bin.i: write_rimg_vo_bin.cpp.i
+
+.PHONY : write_rimg_vo_bin.i
+
+# target to preprocess a source file
+write_rimg_vo_bin.cpp.i:
+	$(MAKE) -f CMakeFiles/write_rimg_vo_bin.dir/build.make CMakeFiles/write_rimg_vo_bin.dir/write_rimg_vo_bin.cpp.i
+.PHONY : write_rimg_vo_bin.cpp.i
+
+write_rimg_vo_bin.s: write_rimg_vo_bin.cpp.s
+
+.PHONY : write_rimg_vo_bin.s
+
+# target to generate assembly for a file
+write_rimg_vo_bin.cpp.s:
+	$(MAKE) -f CMakeFiles/write_rimg_vo_bin.dir/build.make CMakeFiles/write_rimg_vo_bin.dir/write_rimg_vo_bin.cpp.s
+.PHONY : write_rimg_vo_bin.cpp.s
+
+write_rimg_vo_labels.o: write_rimg_vo_labels.cpp.o
+
+.PHONY : write_rimg_vo_labels.o
+
+# target to build an object file
+write_rimg_vo_labels.cpp.o:
+	$(MAKE) -f CMakeFiles/write_rimg_vo_labels.dir/build.make CMakeFiles/write_rimg_vo_labels.dir/write_rimg_vo_labels.cpp.o
+.PHONY : write_rimg_vo_labels.cpp.o
+
+write_rimg_vo_labels.i: write_rimg_vo_labels.cpp.i
+
+.PHONY : write_rimg_vo_labels.i
+
+# target to preprocess a source file
+write_rimg_vo_labels.cpp.i:
+	$(MAKE) -f CMakeFiles/write_rimg_vo_labels.dir/build.make CMakeFiles/write_rimg_vo_labels.dir/write_rimg_vo_labels.cpp.i
+.PHONY : write_rimg_vo_labels.cpp.i
+
+write_rimg_vo_labels.s: write_rimg_vo_labels.cpp.s
+
+.PHONY : write_rimg_vo_labels.s
+
+# target to generate assembly for a file
+write_rimg_vo_labels.cpp.s:
+	$(MAKE) -f CMakeFiles/write_rimg_vo_labels.dir/build.make CMakeFiles/write_rimg_vo_labels.dir/write_rimg_vo_labels.cpp.s
+.PHONY : write_rimg_vo_labels.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -381,6 +461,8 @@ help:
 	@echo "... visualize_rimg_pc"
 	@echo "... write_rimg_bin"
 	@echo "... write_rimg_labels"
+	@echo "... write_rimg_vo_bin"
+	@echo "... write_rimg_vo_labels"
 	@echo "... filepath.o"
 	@echo "... filepath.i"
 	@echo "... filepath.s"
@@ -399,6 +481,12 @@ help:
 	@echo "... write_rimg_labels.o"
 	@echo "... write_rimg_labels.i"
 	@echo "... write_rimg_labels.s"
+	@echo "... write_rimg_vo_bin.o"
+	@echo "... write_rimg_vo_bin.i"
+	@echo "... write_rimg_vo_bin.s"
+	@echo "... write_rimg_vo_labels.o"
+	@echo "... write_rimg_vo_labels.i"
+	@echo "... write_rimg_vo_labels.s"
 .PHONY : help
 
 
