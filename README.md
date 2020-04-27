@@ -156,14 +156,15 @@ Given the generated range image, the labels associated with each range image pix
 
 ## PRI-Unet (Pure Range Image Unet)
 The deep learning architecture for this was used using the Unet architecture. The code for this can be found under the folder **"Colab"**   
-Picture of the unet   
+<img src="images/5_PRI-Unet_Architecture.jpg" alt="drawing" height="450" title="PRI-Unet Architecture"/>   
+*PRI-Unet Architecture which follows the Unet Architecture*   
 The model was trained using the following sequences which were further split into 80-20 for training and validation:
 * Seq 01
 * Seq 04 
 * Seq 05
 * Seq 06 
 * Seq 07
-* Seq 09
+* Seq 09   
 The following sequences were used as these sequences were the smaller sequences and due to the limited RAM to train our network (due to using Colab).
 
 ## Ground Truth and PRI-Unet Prediction
