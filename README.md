@@ -72,12 +72,11 @@ The purpose of this project is to perform label segmentation on a range image ex
 ## Prerequisites
 * Docker (Optional, Recommended as their might be version conflicts with pre-existing packages installed in your computer)
 * Ubuntu 16.04
-* Google Colab
 * Eigen 3.2.5
 * VTK-7.1.0
 * Flann 1.8
 * Boost 1.58
-
+* Google Colab
 There are several other prerequisites for the prepocessing and running the RangeImageUnet code which are described below.
 
 ### Preprocess (Range Image)
@@ -128,11 +127,48 @@ sudo make install
 ```  
 
 ## Generating Range Images
-The .cpp files specifically write_rimg_bin.cpp and write_rimg_labels.cpp are used to generate the range images and the parameters will be explained below.
+The .cpp files specifically write_rimg_bin.cpp and write_rimg_labels.cpp are used to generate the range images and the parameters will be explained below. The files that generated the range images can be found in the folder **"src"**   
+Below is an example of a point cloud visualized through PCL that will be used to generate the range image.
+<img src="images/0_pcl_pointcloud.jpg" alt="drawing" height="300" title="Point Cloud"/>    
+*Example Point Cloud*
 ### Angular Resolution
-The angular resolution for both x and y axis have been set to 0.31 degrees to limit the size of the range image. The KITTI dataset contain lidar point cloud data with an angular resolution of 0.09 degrees. However this created a range image that was nearly 4000 x 530 pixels. Due to the limitation of Google Colab in terms of GPU RAM and disk space, the range images generated needed to be tuned to 0.31 degrees to generate an image that was 1280 x 128 pixels.
+The angular resolution for both x and y axis have been set to 0.31 degrees to limit the size of the range image. The KITTI dataset contain lidar point cloud data with an angular resolution of 0.09 degrees. However this created a range image that was nearly 4000 x 530 pixels. Due to the limitation of Google Colab in terms of GPU RAM and disk space, the range images generated needed to be tuned to 0.31 degrees to generate an image that was 1280 x 128 pixels.  
+<img src="images/1_pcl_009_rangeimage.jpg" alt="drawing" height="300" title="0.09 deg resolution"/>    
+*0.09 Deg Resolution Range Image*
+<img src="images/1_pcl_031_rangeimage.jpg" alt="drawing" height="300" title="0.31 deg resolution"/>   
+*0.31 Deg Resolution Range Image*
 ### Coordinate Frame
 LASER_FRAME was used instead of IMAGE_FRAME
-### Angular
-360.0f 180.0f
+### Max Angle Height and Width 
+The maximum angle height and width were set to the following:
+* Maximum Angle Width: 360.0f 
+* Maximum Angle Height: 180.0f
 
+A maximum angle width of 360 degree ensures that the range images that were generated was from the full scan.   
+A maximum angle width of 180 degree generates range images from half the scan.   
+<img src="images/2_pcl_180_rangeimage.jpg" alt="drawing" height="300" title="max angle width 180"/>
+<img src="images/2_pcl_360_rangeimage.jpg" alt="drawing" height="300" title="max angle width 360"/>
+
+## Associating range image pixel with labels
+Given the generated range image, the labels associated with each range image pixel was computed using a KD tree. A KD tree was generated from the point cloud data. The range image stores the x,y,z coordinate in each pixel and using a KD tree search, the nearest point and its index were found. The label was then extracted by the found index from the .label files from the KITTI Segmented dataset (as the the .bin and .label files have corresponding indices).
+<img src="images/3_matlab_rangelabel_01_000000.jpg" alt="drawing" height="450" title="Range and Label Image"/>   
+*Range Images. On the top the range image visualized through range. On the bottom the range image visualized through labels*
+
+## PRI-Unet (Pure Range Image Unet)
+The deep learning architecture for this was used using the Unet architecture. The code for this can be found under the folder **"Colab"**   
+Picture of the unet   
+The model was trained using the following sequences which were further split into 80-20 for training and validation:
+* Seq 01
+* Seq 04 
+* Seq 05
+* Seq 06 
+* Seq 07
+* Seq 09
+The following sequences were used as these sequences were the smaller sequences and due to the limited RAM to train our network (due to using Colab).
+
+## Ground Truth and PRI-Unet Prediction
+The accuracy of our model is seen in the table presented at the very beginning.   
+An example of the prediction can be seen below.   
+<img src="images/4_matlab_gtrimg_seq_04_000000.jpg" alt="drawing" height="400" title="GT Label Range Image"/>
+<img src="images/4_matlab_predrimg_seq_04_000000.jpg" alt="drawing" height="400" title="Pred Label Range Image"/>   
+*Point Cloud Label. The first figure is the Ground Truth Point Cloud Data from Range Image. The second is the Predicted Point Cloud Data from Range Images*
