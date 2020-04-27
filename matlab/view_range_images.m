@@ -102,6 +102,9 @@ color_factor = 256 / max_range;
 % figure
 ax1 = subplot(2,1,1);
 scatter(idx_x, -idx_y, 10, round(color_factor*range))
+xlabel('x')
+ylabel('y')
+title({'Range Image by Range','Sequence 01 000000'})
 axis equal
 
 %% Plot the range image by classification
@@ -118,5 +121,8 @@ for i = 1:length(fieldnames(data_labeled))
         scatter(data_labeled.(fnames{i}).x, -data_labeled.(fnames{i}).y, 10, colors(i,:));
     end
 end
+xlabel('x')
+ylabel('y')
+title({'Range Image by Label','Sequence 01 000000'})
 axis equal
 linkaxes([ax1,ax2], 'xy')
