@@ -1,4 +1,4 @@
-# PRI-Unet (Pure Range Image - Unet)
+# PRI-Unet (Pure Range Image Unet)
 U of M ROB530: Mobile Robotics Project for Winter 2019 
 The purpose of this project is to perform label segmentation on a range image extracted from a point cloud using a deep learning approach.  There were several steps that we took to accomplish this which will be outlined in this repository.  
 * Generating Range Images
@@ -6,7 +6,7 @@ The purpose of this project is to perform label segmentation on a range image ex
 * Evaluation of Labeled Output
 * Visualize map using BKISemanticMapping
 
-## Quantitative results on SemanticKITTI dataset sequence 00-10 for 19 semantic classes. SqueezeSegV2-kNN (Sq.-kNN)
+## Quantitative results on SemanticKITTI dataset sequence 00-10 for 19 semantic classes. Pure Range Image Unet (PRI-Unet)
 
 | Sequence  | Method | Car | Bicycle | Motorcycle | Truck | Other Vehicle | Person | Bicyclist | Motorcyclist | Road | Parking | Sidewalk | Other Ground | Building | Fence | Vegetation | Trunk | Terrain | Pole | Traffic Sign | Average | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
