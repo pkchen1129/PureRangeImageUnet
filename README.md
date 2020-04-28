@@ -1,10 +1,22 @@
 # PRI-Unet (Pure Range Image Unet)
-U of M ROB530: Mobile Robotics Project for Winter 2019 
-The purpose of this project is to perform label segmentation on a range image extracted from a point cloud using a deep learning approach.  There were several steps that we took to accomplish this which will be outlined in this repository.  
+U of M ROB530: Mobile Robotics Project for Winter 2020
+The purpose of this project is to perform label segmentations on a range image extracted from a point cloud using a deep learning approach. The dataset that was used was the Segmantic KITTI datasets (seq 00-10).   
+   
+There were several steps that we took to accomplish this which will be outlined in this repository.  
+* Plot and Quantitative Results
 * Generating Range Images
 * Deep Neural Network (Unet)
 * Evaluation of Labeled Output
 * Visualize map using BKISemanticMapping
+
+## Plotting Results with BKI Semantic
+Below are the plots of the trajectory and the map of the labeled point cloud data using BKI Semantics. Note that the trajectory are not plotted with equal axis for easier visualization. The point cloud map is plotted with equal axis.    
+    
+<img src="images/6_pose_plot.jpg" alt="drawing" height="400" title="lidar pose graph"/>  
+*Plots of ground truth pose for individual sequences*  
+  
+<img src="images/6_BKI_plot.jpg" alt="drawing" height="400" title="bki pose graph"/>  
+*Maps generated through BKI Semantic for individual sequences*
 
 ## Quantitative results on SemanticKITTI dataset sequence 00-10 for 19 semantic classes. Pure Range Image Unet (PRI-Unet)
 
