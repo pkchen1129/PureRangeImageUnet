@@ -11,10 +11,8 @@ There were several steps that we took to accomplish this which will be outlined 
 
 ## Plotting Results with BKI Semantic
 Below are the plots of the trajectory and the map of the labeled point cloud data using BKI Semantics. Note that the trajectory are not plotted with equal axis for easier visualization. The point cloud map is plotted with equal axis.    
-    
 <img src="images/6_pose_plot.jpg" alt="drawing" height="400" title="lidar pose graph"/>  
-*Plots of ground truth pose for individual sequences*  
-  
+*Plots of ground truth pose for individual sequences*
 <img src="images/6_BKI_plot.jpg" alt="drawing" height="400" title="bki pose graph"/>  
 *Maps generated through BKI Semantic for individual sequences*
 
